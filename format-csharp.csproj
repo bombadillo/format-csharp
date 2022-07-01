@@ -11,4 +11,12 @@
     <PackageReference Include="Swashbuckle.AspNetCore" Version="6.2.3" />
   </ItemGroup>
 
+  <!-- set HUSKY to 0 in CI/CD disable this -->
+<Target Name="husky" BeforeTargets="Restore;CollectPackageReferences" Condition="'$(HUSKY)' != 0">
+    <Exec Command="dotnet tool restore"  StandardOutputImportance="Low" StandardErrorImportance="High"/>
+    <Exec Command="dotnet tool install husky" StandardOutputImportance="Low" StandardErrorImportance="High" WorkingDirectory="./" />
+    <Exec Command="dotnet tool install csharpier" StandardOutputImportance="Low" StandardErrorImportance="High" WorkingDirectory="./" />
+    <Exec Command="dotnet husky install" StandardOutputImportance="Low" StandardErrorImportance="High" WorkingDirectory="./" />
+</Target>
+
 </Project>
