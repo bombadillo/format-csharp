@@ -34,3 +34,10 @@ Once Husky has been installed after a project/solution is restored the Husky con
 ```
 
 This runs CSharpier on any files that are staged and being committed. It targets any files that are found using the pattern `**/*.cs`.
+
+## Manual usage
+### CSharpier
+CSharpier can be run manually using the command `dotnet csharpier .`.
+
+### Husky
+The husky command can be run manually using `dotnet husky run`.
