@@ -25,7 +25,7 @@ Installation can be implemented in a such a way that developers would not requir
 Now just run `dotnet restore` and the tools should now be installed.
 
 ## Config
-Once Husky has been installed after a project/solution is restored the Husky config must be updated to control which files and formatted and under which conditions. The following is a good start:
+Once Husky has been installed after a project/solution is restored the Husky config (located in `.husky/task-runner.json`) must be updated to control which files and formatted and under which conditions. The following is a good start:
 
 ```json
 {
@@ -49,3 +49,13 @@ CSharpier can be run manually using the command `dotnet csharpier .`.
 
 ### Husky
 The husky command can be run manually using `dotnet husky run`.
+
+#### Formatting all existing files
+Since the default config we're using only formats staged files, it means that existing files will remain unformatted. We can alter the config to format all existing files and then revert back to formatting only staged files. This can be done as follows:
+
+- Change the args located in the husky config from `${staged}` to `${all-files}`.
+- Run husky `dotnet husky run`
+- All files should now be formatted 
+- Commit formatted files
+- Revert the args change from `${all-files}` back to `${staged}` 
+- Success 🤑
