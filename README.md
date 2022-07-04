@@ -22,6 +22,8 @@ Installation can be implemented in a such a way that developers would not requir
 
 > Note that the `WorkingDirectory` attribute in the `dotnet husky install` command needs to point to the directory that holds the repos `.git` folder, usually the root folder of the repo.
 
+Now just run `dotnet restore` and the tools should now be installed.
+
 ## Config
 Once Husky has been installed after a project/solution is restored the Husky config must be updated to control which files and formatted and under which conditions. The following is a good start:
 
