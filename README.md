@@ -9,9 +9,9 @@ Installation can be implemented in a such a way that developers would not requir
 ```xml
 <!-- set HUSKY to 0 in CI/CD disable this -->
 <Target Name="husky" BeforeTargets="Restore;CollectPackageReferences" Condition="'$(HUSKY)' != 0">
-  <Exec Command="dotnet tool restore"  StandardOutputImportance="Low" StandardErrorImportance="High"/>
-  <Exec Command="dotnet tool install husky" StandardOutputImportance="Low" StandardErrorImportance="High" WorkingDirectory="./" />
-  <Exec Command="dotnet tool install csharpier" StandardOutputImportance="Low" StandardErrorImportance="High" WorkingDirectory="./" />
+  <Exec Command="dotnet tool restore --ignore-failed-sources"  StandardOutputImportance="Low" StandardErrorImportance="High"/>
+  <Exec Command="dotnet tool install husky --ignore-failed-sources" StandardOutputImportance="Low" StandardErrorImportance="High" WorkingDirectory="./" />
+  <Exec Command="dotnet tool install csharpier --ignore-failed-sources" StandardOutputImportance="Low" StandardErrorImportance="High" WorkingDirectory="./" />
   <Exec Command="dotnet husky install" StandardOutputImportance="Low" StandardErrorImportance="High" WorkingDirectory="./" />
 </Target>
 ```
