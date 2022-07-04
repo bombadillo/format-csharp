@@ -3,6 +3,10 @@
 ## Formatting csharp
 This repo uses [CSharpier](https://github.com/belav/csharpier) and [Husky](https://www.nuget.org/packages/Husky/) to format code that is being committed to a git repo. This ensures code styling consistency for every commit.
 
+## Requirements
+An existing dotnet tools manifests needs to exist. This can be added by running the following command: 
+`dotnet new tool-manifest`.
+
 ## Install
 Installation can be implemented in a such a way that developers would not require any additional steps. It's installed when a project is restored simply by adding the following to a project within the solution:
 
